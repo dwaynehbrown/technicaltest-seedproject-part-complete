@@ -59,6 +59,10 @@ describe("filters", () => {
 
   })
 
+  // // ! return specific filters list when selected
+
+  // // ! return specific provider list when selected
+
   // ! WHEN filtering by broadband THEN show the 4 broadband only deals
   it("should return two filters when two filters selected", () => {
 
@@ -295,7 +299,7 @@ describe("filters", () => {
         "upfrontCost": 39.95,
         "totalContractCost": 1263.77
       },
-      "productTypes": ["TV", "Broadband", "Phone"],
+      "productTypes": ["TV", "Broadband"],
       "contractLength": 18
     }];
     const result = st.deals;
