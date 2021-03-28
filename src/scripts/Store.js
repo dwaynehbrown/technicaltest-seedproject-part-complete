@@ -19,6 +19,33 @@ class Store extends Observable {
   }
 
   setDeals(data) {
+
+    /*
+
+    * Normalise
+
+    * 'Broadband' and 'Fibre Broadband' should be considered the same product.
+    * 'Phone' should be ignored.
+
+    ! favour Broadband over Fibre Broadband for filter match type
+
+    */
+
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data[i].productTypes.length; j++) {
+
+        if (data[i].productTypes[j] === "Phone") {
+          data[i].productTypes.splice(j, 1);
+        }
+
+        if (data[i].productTypes[j] === "Fibre Broadband") {
+          data[i].productTypes.splice(j, 1);
+          data[i].productTypes.push("Broadband");
+        }
+
+      }
+    }
+
     this.state.deals = data;
     this.notify(this.state);
   }
