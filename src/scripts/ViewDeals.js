@@ -9,6 +9,9 @@ class ViewDeals {
     if (this.dealList && data.length) {
       const htmlToAppend = this.template.buildDealList(data);
       this.dealList.innerHTML = htmlToAppend;
+    } else {
+      const htmlToAppend = this.template.noData();
+      this.dealList.innerHTML = htmlToAppend;
     }
   }
 

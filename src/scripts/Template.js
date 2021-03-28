@@ -3,6 +3,7 @@ class Template {
     this.deal = document.getElementById("template-deal").innerHTML;
     this.listItem = document.getElementById("template-list-item").innerHTML;
     this.icon = document.getElementById("template-icon").innerHTML;
+    this.empty = document.getElementById("template-empty").innerHTML;
     this.currencyFormatter = new Intl.NumberFormat("en-GB", {
       style: "currency",
       currency: "GBP",
@@ -70,6 +71,10 @@ class Template {
         break;
     }
     return `#icon-${id}`;
+  }
+
+  noData() {
+    return this.empty
   }
 }
 
